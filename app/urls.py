@@ -5,7 +5,7 @@ from django.conf import settings
 urlpatterns=[
     url('^$',views.index,name = 'home_page'),
     url(r'^profile/(?P<user>\w+)', views.profile, name='profile'),
-        url(r'^upload/$', views.upload_project, name='upload_project'),
+    url(r'^upload/$', views.upload_project, name='upload_project'),
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^edit$', views.edit, name='edit_profile'),
     url(r'^rate/(?P<project_id>\d+)',views.rate_project, name='rate'),

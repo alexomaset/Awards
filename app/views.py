@@ -10,3 +10,9 @@ from rest_framework.views import APIView
 from .serializer import ProfileSerializer,ProjectSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
+
+# Create your views here
+def index(request):
+    date = dt.date.today()
+    project = Project.objects.all()
+    return render(request,'home.html',locals())

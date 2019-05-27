@@ -16,3 +16,16 @@ def index(request):
     date = dt.date.today()
     project = Project.objects.all()
     return render(request,'home.html',locals())
+
+@login_required(login_url='/accounts/login')
+def upload_project(request):
+    if request.method == 'POST':
+        uploadform = ProjectForm(request.POST, request.FILES)
+        if uploadform.is_valid():
+            upload = uploadform.save(commit=False)
+            upload.profile = request.user.profile
+            upload.save()
+            return redirect('home_page')
+    else:
+        uploadform = ProjectForm()
+    return render(request,'update-project.html',locals())

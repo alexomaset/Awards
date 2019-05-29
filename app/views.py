@@ -46,19 +46,18 @@ def search_results(request):
         return render(request, 'search.html',locals())
 
     else:
-        message = "You haven't searched for any term"
+        message = "no project by that name"
         return render(request,'search.html',{"message":message})
 @login_required(login_url='/accounts/login/')
 def profile(request, username):
     projo = Project.objects.all()
     profile = User.objects.get(username=username)
-    # print(profile.id)
     try:
         profile_details = Profile.get_by_id(profile.id)
     except:
         profile_details = Profile.filter_by_id(profile.id)
     projo = Project.get_profile_projects(profile.id)
-    title = f'@{profile.username} awwward projects and screenshots'
+    title = f'@{profile.username} award projects and screenshots'
 
     return render(request, 'profile.html', locals())
     '''
@@ -123,7 +122,7 @@ def vote(request,project_id):
        rateform = RateForm()
    except DoesNotExist:
        raise Http404()
-   return render(request,"project.html", locals())
+   return render(request,"projects.html", locals())
 
 class ProfileList(APIView):
     def get(self, request, format=None):

@@ -87,14 +87,14 @@ def logout(request):
 
 def rate(request):
     profile = User.objects.get(username=request.user)
-    return render(request,'rate.html',locals())
+    return render(request,'vote.html',locals())
 
 def view_rate(request,project_id):
     user = User.objects.get(username=request.user)
     project = Project.objects.get(pk=project_id)
     rate = Rate.objects.filter(project_id=project_id)
     print(rate)
-    return render(request,'project.html',locals())
+    return render(request,'all_project.html',locals())
 
 @login_required(login_url='/accounts/login')
 def rate_project(request,project_id):
@@ -111,7 +111,7 @@ def rate_project(request,project_id):
             return redirect('vote',project_id)
     else:
         rateform = RateForm()
-    return render(request,'rate.html',locals())
+    return render(request,'vote.html',locals())
 
 @login_required(login_url='/accounts/login/')
 def vote(request,project_id):
@@ -122,7 +122,7 @@ def vote(request,project_id):
        rateform = RateForm()
    except DoesNotExist:
        raise Http404()
-   return render(request,"projects.html", locals())
+   return render(request,"all_projects.html", locals())
 
 class ProfileList(APIView):
     def get(self, request, format=None):

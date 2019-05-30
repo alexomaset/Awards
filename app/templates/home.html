@@ -40,7 +40,7 @@
     </section>
 </div>
 <div class="container-fluid" id="pro">
-    <h5><strong>Nominees</strong> vote</h5>
+    <h5><strong>Highlights</strong> vote</h5>
     <div class="row">
         {% for data in project %}
 
@@ -48,7 +48,7 @@
             <div class="hovereffect">
                 <img class="img-responsive" src="{{data.screenshot.url}}" alt="Card image cap" width="100%;" heigth="300px;">
                 <div class="overlay">
-                    <a class="info" href="{% url 'vote' data.pk %}">VOTE NOW</a>
+                    <a class="info" href="{% url 'vote' data.pk %}">VOTE</a>
                 </div>
             </div>
             <div class="card-header">

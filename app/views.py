@@ -28,7 +28,7 @@ def upload_project(request):
             return redirect('home_page')
     else:
         uploadform = ProjectForm()
-    return render(request,'update-project.html',locals())
+    return render(request,'upload_project.html',locals())
 
 
 def view_project(request):

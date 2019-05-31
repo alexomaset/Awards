@@ -46,7 +46,7 @@ The different technologies that were used to develop this program include:
 ### Link to live site
 Here is a link to the live site https://awards254.herokuapp.com/
 ### Contact Me
-If you have any suggestions, additions or modifications on this project you can reach me via my email: .com
+If you have any suggestions, additions or modifications on this project you can reach me via my email: alexomaset711@gmail.com
 ### License  & Copyright information
 Copyright (c) 2019 Alex Omaset
 [MIT License](./LICENSE)
